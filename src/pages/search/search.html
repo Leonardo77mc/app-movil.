@@ -1,0 +1,20 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="true" (ionCancel)="onCancel($event)" #searchBar placeholder="Buscar" [animated]="true" autocomplete="on" [debounce]="7" (keyup)="onKeydown($event)">
+        </ion-searchbar>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-list *ngIf="viewSearch" no-lines>
+        <ion-item *ngFor="let item of items" (click)="openProduct(item.id)">
+            <ion-icon name="ios-clock-outline" item-start></ion-icon>
+            {{item.titulo}}
+            <ion-icon name="ios-arrow-round-forward-outline" item-end></ion-icon>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

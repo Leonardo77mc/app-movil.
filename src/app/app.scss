@@ -1,16 +1,47 @@
 // http://ionicframework.com/docs/theming/
+//fonts:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+@font-face {
+    font-family: "Rounded Elegance";
+    src: url("https:allinapp.com.co/fonts/rounded_elegance/Rounded_Elegance.ttf");
+}
 
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//div the el form the payment in cash::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$width-div: 100%;
+$height-div: 40%;
+$border-radius-4: 4px;
+$border: 1px solid #9e9e9e;
+$margin-5em: 1.1em;
+$margin-top-2em: 2em;
+$dark: rgba(#000,
+.10);
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// segment.......................................................................................................................................
+$segment-button-md-border-bottom-width: 2px; //Ancho del borde inferior en el botón de segmento.
+$segment-button-md-border-bottom-color: rgba(#000,
+.10); //Color del borde inferior en el botón de segmento.
+$segment-button-md-opacity: '.7'; //Opacidad del botón de segmento.
+$segment-button-md-opacity-activated: 1; //Opacidad del botón del segmento activado.
+$segment-button-md-opacity-disabled: .3; //Opacidad del botón de segmento desactivado.
+$segment-button-md-padding-top: 0; //Relleno en la parte superior del botón de segmento.
+$segment-button-md-padding-end: 6px; //Relleno final del botón de segmento.
+$segment-button-md-padding-bottom: $segment-button-md-padding-top; //Relleno de la parte inferior del botón de segmento.
+$segment-button-md-text-color-activated: $toolbar-md-active-color; //Color de texto del botón de segmento activado.
+$segment-button-md-border-color-activated: $toolbar-md-active-color; // Color de borde del botón de segmento activado.
+$segment-button-md-padding-start: $segment-button-md-padding-end; // Acolchado de inicio del botón de segmento.
+$segment-button-md-height: 4.2rem; //Altura del botón de segmento.
+$segment-button-md-line-height: 4rem; //Altura de línea del botón de segmento.
+$segment-button-md-font-size: 1.2rem; //Tamaño de fuente del botón de segmento.
+$segment-button-md-icon-size: 2.6rem; //Tamaño de un icono en el botón de segmento.
+$segment-button-md-icon-line-height: $segment-button-md-line-height; //Altura de línea de un icono en el botón de segmento.
+//close section segment:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// styles of the loading-control::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$loading-ios-border-radius: 8px;
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//:::::::::::::::::::::::::::::colores::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$rojorubi:#872225;
+$tabs-md-tab-icon-color-active: #b71c1c;
+$text-color:( text-blue: #000099,
+red-text: #e75350);

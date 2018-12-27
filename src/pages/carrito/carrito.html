@@ -1,0 +1,73 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title class="arial serif">carrito</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12 center text-center>
+                <ion-list>
+                    <ion-item *ngFor="let product of products" class="lista-item" no-lines>
+                        <ion-thumbnail item-start>
+                            <img src="https://allinapp.com.co/vistas/imagenes/tienda-img/img-small/{{product.url}}">
+                        </ion-thumbnail>
+                        <p></p>
+                        <small>{{product.titulo}}</small><br>
+                        <small>Unidades:{{product.cantidad}}</small><br>
+                        <small>{{product.valor | currency:COP:true:'1.0-3'}}</small>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12 text-right *ngIf="botones">
+                <h6 class="typeSerif">Total Compra: {{totalOrder | currency:COP:true:'1.0-3'}}</h6>
+                <h6 class="typeSerif">Total Puntos: {{totalDots | currency:COP:true:'1.0-2'}}</h6>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+    <div class="content-btn">
+        <button ion-button [full]="true" color="rojo" class="btn elegance" *ngIf="botones" (click)="saveOrder()">Confirmar pedido</button>
+        <button ion-button [full]="true" color="rojo" class="btnCancel elegance" (click)="cancelOrder()" *ngIf="botones">Anular pedido</button>
+    </div>
+
+    <div *ngIf="viewcartfull">
+        <ion-grid>
+            <ion-row>
+
+                <ion-item col-12 no-lines text-center>
+                    <img [src]="imagecart2">
+                </ion-item>
+
+                <ion-item no-lines text-center>
+                    <h2 class="elegance">Compra Realizada</h2>
+                </ion-item>
+
+            </ion-row>
+        </ion-grid>
+        <div class="content-btn2">
+            <button ion-button [full]="true" color="rojo" class="btn elegance" (click)="payments()">Pagar esta factura</button>
+        </div>
+    </div>
+
+    <div *ngIf="viewcartvoid">
+        <ion-grid>
+            <ion-row>
+                <ion-item no-lines text-center>
+                    <h2 class="elegance">Carrito vacio</h2>
+                </ion-item>
+                <ion-item col-12 no-lines>
+                    <img [src]="imagecart">
+                </ion-item>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+</ion-content>

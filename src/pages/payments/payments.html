@@ -1,0 +1,257 @@
+<ion-header>
+
+    <ion-navbar text-center>
+
+        <button ion-button menuToggle>
+                <img src="http://allinapp.com.co/vistas/assets/img/logo_all_app.png" style='width:27px; height:27px; margin-top:0.2em;'>
+        </button>
+
+        <ion-buttons end>
+            <button ion-button icon-only>
+              <ion-icon name="ios-unlock-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title class="elegance">pago</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+
+    <div class="content-div" text-center>
+
+        <ion-slides>
+            <ion-slide>
+
+                <h2 class="elegance">Pago de tu factura<br> N° AIA-{{idinvoice}}</h2>
+                <p>Puedes cancelar en los siguientes medios de pagos</p>
+
+                <ion-card>
+                    <ion-card-header>
+
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col-12>
+                                    <img [src]="imagepayu">
+                                </ion-col>
+                                <div class="content-btn">
+                                    <button ion-button [full]="true" color="grey" class="btn elegance" (click)="nexSlides()">Pagar</button>
+                                </div>
+                            </ion-row>
+                        </ion-grid>
+
+                    </ion-card-header>
+                </ion-card>
+
+
+
+            </ion-slide>
+            <ion-slide *ngIf="viewslide">
+
+                <ion-card>
+                    <ion-card-header>
+
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col-12>
+                                    <ion-item>
+                                        <ion-label floating> <small class="elegance">Elegir metodo de pago</small></ion-label>
+                                        <ion-select [(ngModel)]="methodpayment" style="border:1px solid grey; border-radius: 4px;">
+                                            <ion-option value="efectivo">Efectivo</ion-option>
+                                            <ion-option value="contraentrega">Contraentrega</ion-option>
+                                        </ion-select>
+                                    </ion-item>
+
+                                    <ion-item text-center>
+                                        <span>Servicio seguro 100%</span><br>
+                                        <small>Garantizar la seguridad y confidencialidad<br> de tus datos es nuestra prioridad.<br>
+                                            PayU cuenta con un sistema que<br>combina múltiples variables para<br>
+                                             determinar, a través de inteligencia<br> artificial, la probabilidad de fraude en <br>una transacción.
+                                        </small><br><br>
+                                        <small>
+                                            All in App no guarda tu informacion<br> de pago.<br>
+                                            Puedes pagar con confianza
+                                        </small>
+                                    </ion-item>
+                                    <div class="content-btn">
+                                        <button ion-button [full]="true" color="grey" class="btn elegance" (click)="next()">Siguiente</button>
+                                    </div>
+
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+                    </ion-card-header>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide *ngIf="viewEfectivo">
+                <ion-card>
+                    <ion-card-header>
+
+                        <ion-list>
+                            <form [formGroup]="varpayment" (ngSubmit)="onSubmit()">
+
+                                <ion-item text-center>
+                                    <small>
+                                                Puedes cancelar en cualquiera de<br>
+                                                estos medios de pagos disponibles <br>EFECTY o
+                                                BALOTO
+                                    </small>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label floating>Nombre:</ion-label>
+                                    <ion-input type="text" [formControl]="varpayment.controls['name']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Apellidos:</ion-label>
+                                    <ion-input type="text" [formControl]="varpayment.controls['lastnames']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Cedula:</ion-label>
+                                    <ion-input type="text" [formControl]="varpayment.controls['identificationcard']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Direccion del domicilio:</ion-label>
+                                    <ion-input type="text" [formControl]="varpayment.controls['address']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Telefono:</ion-label>
+                                    <ion-input type="text" [formControl]="varpayment.controls['telephone']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Elige el punto</ion-label>
+                                    <ion-select [formControl]="varpayment.controls['dotpayment']" class="borde elegance">
+                                        <ion-option>Efecty</ion-option>
+                                        <ion-option>Baloto</ion-option>
+                                    </ion-select>
+                                </ion-item>
+
+                                <div class="content-btn">
+                                    <button ion-button [full]="true" color="grey" class="btn elegance" type="submit">Siguiente</button>
+                                </div>
+                            </form>
+                        </ion-list>
+
+                    </ion-card-header>
+                </ion-card>
+
+            </ion-slide>
+
+            <ion-slide *ngIf="viewCard">
+                <ion-card>
+                    <ion-card-header>
+
+                        <ion-list>
+                            <form [formGroup]="varpaymentcard" (ngSubmit)="onSubmitcart()">
+
+                                <ion-item text-center>
+                                    <small>
+                                              Por favor llenar los capos del titular
+                                    </small>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Selecciona la tarjeta</ion-label>
+                                    <ion-select [formControl]="varpaymentcard.controls['tipocard']" class="borde elegance">
+                                        <ion-option>Visa</ion-option>
+                                        <ion-option>Master card</ion-option>
+                                        <ion-option>Amex</ion-option>
+                                        <ion-option>Diners</ion-option>
+                                        <ion-option>Credito facil codensa</ion-option>
+                                    </ion-select>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Mes</ion-label>
+                                    <ion-select [formControl]="varpaymentcard.controls['mescard']" class="borde elegance">
+                                        <div *ngFor="let i of mes">
+                                            <ion-option value="{{i.id}}">{{i.mes}}</ion-option>
+                                        </div>
+                                    </ion-select>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Año</ion-label>
+                                    <ion-select [formControl]="varpaymentcard.controls['yearcard']" class="borde elegance">
+                                        <div *ngFor="let i of ano">
+                                            <ion-option>{{i}}</ion-option>
+                                        </div>
+                                    </ion-select>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>N° de la tarjeta:</ion-label>
+                                    <ion-input type="number" [formControl]="varpaymentcard.controls['numbercard']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Nombre:</ion-label>
+                                    <ion-input type="text" [formControl]="varpaymentcard.controls['namecard']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Apellidos:</ion-label>
+                                    <ion-input type="text" [formControl]="varpaymentcard.controls['lastnamescard']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label floating>Cedula:</ion-label>
+                                    <ion-input type="text" [formControl]="varpaymentcard.controls['cedulacard']" class="borde elegance"></ion-input>
+                                </ion-item>
+
+                                <div class="content-btn">
+                                    <button ion-button [full]="true" color="grey" class="btn elegance" type="submit">Siguiente</button>
+                                </div>
+                            </form>
+                        </ion-list>
+
+                    </ion-card-header>
+                </ion-card>
+
+            </ion-slide>
+
+            <ion-slide *ngIf="viewEntrega">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-list>
+                            <ion-item>
+                                <h2>Contraentrega</h2>
+                            </ion-item>
+                        </ion-list>
+                    </ion-card-header>
+                </ion-card>
+            </ion-slide>
+
+            <ion-slide *ngIf="viewslide3">
+
+                <ion-card>
+                    <img [src]="imagebaloto" *ngIf="viewimage">
+                    <img [src]="imagefecty" *ngIf="!viewimage">
+
+                    <ion-card-content>
+                        <ion-card-title class="elegance title">Factura generada</ion-card-title>
+                        <h1 class="elegance">N° {{reportcash.idOrden}}</h1>
+                        <small>Puedes ver detalles mas especificos de<br>
+                             tu factura en tu modulo de empresario<br>
+                             de nuestra plataforma web 
+                        </small>
+                        <div class="content-btn">
+                            <button ion-button [full]="true" color="grey" class="btn elegance">Cerrar</button>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+</ion-content>

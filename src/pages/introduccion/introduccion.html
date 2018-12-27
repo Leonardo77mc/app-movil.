@@ -1,0 +1,21 @@
+
+<ion-content>
+  <div class="content-intro">
+
+    <ion-slides pager class = "background-intro">
+
+                <!-- Código para crear slides -->
+                <ion-slide *ngFor="let i of slides">
+                             <img [src] = "i.image">
+                </ion-slide>
+
+                <ion-slide>
+                             <img [src] = "intro4" (click)="saltar_tutorial()">
+                </ion-slide>
+
+
+    </ion-slides>
+
+  </div>
+
+</ion-content>

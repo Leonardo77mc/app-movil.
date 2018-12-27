@@ -1,0 +1,51 @@
+<ion-header>
+
+    <ion-navbar color="rojo">
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="openCart()">
+        <ion-icon name="ios-cart"></ion-icon>
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="beginSearch()">
+        <ion-icon name="ios-search-outline"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-title class="arial serif">Modulo Del Usuario</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content parallax-header>
+
+
+    <div class="header-image">
+        <img src="https://allinapp.com.co/vistas/imagenes/tienda-img/store/{{detalleProducto.url}}">
+    </div>
+
+    <div class="main-content">
+        <h5 class="arial serif">{{detalleProducto.titulo}}</h5>
+        <p class="arial serif">{{detalleProducto.producto}}</p>
+        <h2>${{numberFormat}}</h2>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-2 class="btn-b" text-center>
+                    <ion-icon name="md-remove" (click)="removeProduct()"></ion-icon>
+                </ion-col>
+                <ion-col col-2 class="cajaInput">{{productQuantity}}</ion-col>
+
+                <ion-col col-2 class="btn-b" text-center>
+                    <ion-icon name="md-add" (click)="addProduct()"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-grid><br><br>
+
+        <div class="content-btn">
+            <button ion-button [full]="true" class="serif" color="rojo" (click)="agregarProducto()">Agregar Al Carro</button>
+        </div>
+
+    </div>
+</ion-content>

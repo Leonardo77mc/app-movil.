@@ -1,0 +1,53 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title class="serif arial">Detalles de la factura</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-grid>
+
+        <ion-row>
+
+            <ion-col col-s12>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th text-left>Producto</th>
+                            <th text-left>Cantidad</th>
+                            <th text-center>Valor</th>
+                            <th text-right>Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of invoice">
+                            <td>{{item.titulo}}</td>
+                            <td text-center>{{item.cantidad}}</td>
+                            <td text-center>{{formatearNumero(item.precio)}}</td>
+                            <td text-center *ngIf="item.id_categoria === '2'">{{(item.precio / 2850).toFixed(1)}}</td>
+                            <td text-center *ngIf="item.id_categoria != '2'">0</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td text-center></td>
+                            <td text-center>{{formatearNumero(total)}}</td>
+                            <td text-center>{{totalpuntos}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="content-btn">
+                    <button ion-button [full]="true" color="rojo" class="btn serif" (click)="openPayment()">Pagar</button>
+                </div>
+
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,65 @@
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content class = "refrescar"
+                           pullingIcon="arrow-dropdown"
+                           pullingText="Baja Lo Suficiente Para Actualizar"
+                           refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid class="contenedor-m-home">
+
+    <ion-row>
+
+      <ion-col col-12 class="square-small">
+        <ion-item-group>
+          <ion-item>
+            <img src="https://allinapp.com.co/assets/recursosMovil/iconos/rank.svg" width="21" height="21">
+            Rango Obtenido
+            <ion-badge item-end color="verde">{{nameRange}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <img src="https://allinapp.com.co/assets/recursosMovil/iconos/grupo.png" width="21" height="21">
+            Empresarios Directos
+            <ion-badge item-end color="orange">{{directos}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <img src="https://allinapp.com.co/assets/recursosMovil/iconos/redIndirectos.png" width="21" height="21">
+            Empresarios en mi Red
+            <ion-badge item-end color="orange">{{indirectos}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="ios-radio-button-on"></ion-icon>
+            Puntos Personales
+            <ion-badge item-end color="orange">{{misPuntos}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <img src="https://allinapp.com.co/assets/recursosMovil/iconos/indirectos.png" width="21" height="21">
+            Puntos Grupales
+            <ion-badge item-end color="orange">{{pointsGroup}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <img src="https://allinapp.com.co/assets/recursosMovil/iconos/quincena.png" width="21" height="21">
+            Total Quincena
+            <ion-badge item-end color="primary">{{totalQuincenaFormat}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <img src="https://allinapp.com.co/assets/recursosMovil/iconos/brazo.png" width="21" height="21">
+            Brazo de Pago
+            <ion-badge item-end color="verde">{{brazo}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <img src="https://allinapp.com.co/assets/recursosMovil/iconos/bono.png" width="21" height="21">
+            Bono Multinivel
+            <ion-badge item-end color="primary">{{bonoMultinivel}}</ion-badge>
+          </ion-item>
+        </ion-item-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

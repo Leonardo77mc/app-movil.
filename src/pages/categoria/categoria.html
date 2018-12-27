@@ -1,0 +1,46 @@
+<ion-header>
+
+    <ion-navbar>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="openCart()">
+        <ion-icon name="ios-cart"></ion-icon>
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="beginSearch()">
+        <ion-icon name="ios-search-outline"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-title class="arial serif">categoria</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content class="refrescar" pullingIcon="arrow-dropdown" pullingText="Baja Lo Suficiente Para Actualizar">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-grid>
+        <ion-row *ngFor="let productoPares of products">
+            <ion-col *ngFor="let productoItem of productoPares" class="borde-grey" (click)="abrirDetalle(productoItem.id)">
+                <img src="https://allinapp.com.co/vistas/imagenes/tienda-img/img-small/{{productoItem.url}}">
+                <span class="arial serif"><strong class="precios">{{productoItem.valor | currency:COP:true:'1.0-3'}}</strong></span><br>
+                <span class="arial serif">{{productoItem.titulo}}</span>
+                <ion-item no-lines>
+                    <ion-badge item-end>Disp:{{productoItem.cantidad}}</ion-badge>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

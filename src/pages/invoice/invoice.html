@@ -1,0 +1,76 @@
+<ion-header>
+
+    <ion-navbar>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="openCart()">
+        <ion-icon name="ios-cart"></ion-icon>
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="beginSearch()">
+        <ion-icon name="ios-search-outline"></ion-icon>
+      </button>
+        </ion-buttons>
+
+        <ion-title class="arial serif">Facturas</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="pendientes" class="invoice serif">
+            Pendientes
+        </ion-segment-button>
+        <ion-segment-button value="pagadas" class="invoice serif">
+            Pagadas
+        </ion-segment-button>
+        <ion-segment-button value="anuladas" class="invoice serif">
+            Anuladas
+        </ion-segment-button>
+
+    </ion-segment>
+
+    <div [ngSwitch]="pet">
+
+        <ion-grid>
+            <ion-row *ngSwitchCase="'pendientes'">
+                <ion-col col-12>
+                    <ion-list>
+                        <ion-item *ngFor="let items of invoices" (click)="openInvoice(items.id_factura)">
+
+                            <ion-thumbnail item-start>
+                                <img src="https://allinapp.com.co/vistas/assets/png/Documento-PDF.png">
+                            </ion-thumbnail>
+                            <small>Factura de compra</small>
+                            <small>Fecha:{{items.fecha}}</small><br>
+                            <small>Estado:{{items.estado}}</small><br>
+                            <small>Total: {{items.totalCompra | currency:COP:true:'1.0-3'}}</small>
+                            <ion-icon name="md-eye" item-end></ion-icon>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngSwitchCase="'pagadas'">
+                <ion-col col-12 text-center>
+                    <h5>Pagadas</h5>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngSwitchCase="'anuladas'">
+                <ion-col col-12 text-center>
+                    <h5>Anuladas</h5>
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+
+    </div>
+
+</ion-content>

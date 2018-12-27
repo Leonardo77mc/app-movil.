@@ -1,0 +1,45 @@
+<ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content class="refrescar" pullingIcon="arrow-dropdown" pullingText="Baja Lo Suficiente Para Actualizar">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <div class="galleryStore">
+        <ion-slides>
+            <ion-slide *ngFor="let pages of galleryStore">
+                <img src="https://res.cloudinary.com/all-in-app/image/upload/v1532429186/slider-store/{{pages.url}}">
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+    <div class="bodyStore">
+        <ion-grid>
+
+            <ion-row>
+                <ion-col col-6 *ngFor="let category of categories" (click)="abrirCategoria(category.id)" text-center style="border:1px solid #eeeeee;">
+                    <div style="width: 100%; color: white;">
+                        <img src="https://allinapp.com.co/vistas/imagenes/tienda-img/img-category/{{category.urlCategory}}">
+                        <p class="serif text-category"><strong>{{category.categoria}}</strong></p>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngFor="let paresproduct of productos">
+                <ion-col *ngFor="let productoItem of paresproduct" class="borde-grey" (click)="abrirDetalle(productoItem.id)">
+                    <img src="https://allinapp.com.co/vistas/imagenes/tienda-img/img-small/{{productoItem.url}}">
+                    <p><strong class="precios">{{productoItem.valor | currency: COP:true:'1.0-3'}}</strong></p>
+                    <p>{{productoItem.titulo}}</p>
+                    <ion-item no-lines>
+                        <ion-badge item-end>Disp:{{productoItem.cantidad}}</ion-badge>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+
+</ion-content>

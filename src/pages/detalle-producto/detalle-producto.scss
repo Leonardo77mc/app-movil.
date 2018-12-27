@@ -1,0 +1,47 @@
+page-detalle-producto {
+    @font-face {
+        font-family: "Rounded Elegance";
+        src: url("https:allinapp.com.co/fonts/rounded_elegance/Rounded_Elegance.ttf");
+    }
+    .header-image {
+        height: 41%!important;
+        margin-bottom: 1px;
+        display: inline-block;
+    }
+    .main-content {
+        width: 100%!important;
+        padding: 3%!important;
+        background-color: white!important;
+        margin-top: 0.1em;
+    }
+    h2 {
+        font-family: Rounded Elegance!important;
+    }
+    .arial {
+        font-weight: lighter!important;
+    }
+    .serif {
+        font-family: Rounded Elegance!important;
+    }
+    h5 {
+        font-family: Rounded Elegance!important;
+    }
+    .content-btn {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .btn {
+        width: 100%!important;
+    }
+    .cajaInput {
+        height: 27px;
+        border: 1px solid grey !important;
+        color: black;
+        text-align: center;
+    }
+    .btn-b {
+        height: 27px !important;
+        background: #ef5350 !important;
+        color: white !important;
+    }
+}

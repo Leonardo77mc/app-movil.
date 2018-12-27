@@ -1,0 +1,139 @@
+
+<ion-content>
+
+  <form [formGroup]="varForm" (ngSubmit)="onSubmit()">
+
+    <ion-list>
+
+      <ion-item class="caja">
+        <ion-icon name="mail" item-start></ion-icon>
+        <ion-label floating>Correo electronico:</ion-label>
+        <ion-input type="email" [formControl]="varForm.controls['email']"></ion-input>
+      </ion-item>
+
+      <ion-item class="caja">
+        <ion-icon name="contact" item-start></ion-icon>
+        <ion-label floating>Usuario:</ion-label>
+        <ion-input type="text" [formControl]="varForm.controls['usuario']"></ion-input>
+      </ion-item>
+      <ion-item class="caja">
+        <ion-icon name="eye" item-start></ion-icon>
+        <ion-label floating>Contraseña:</ion-label>
+        <ion-input type="password" [formControl]="varForm.controls['password']"></ion-input>
+      </ion-item>
+      <ion-row radio-group [formControl]="varForm.controls['genero']">
+        <ion-col>
+          <ion-item class="caja">
+            <ion-icon name="woman" item-start></ion-icon>
+            <ion-label>Mujer</ion-label>
+            <ion-radio value="femenino"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item class="caja">
+            <ion-icon name="man" item-start></ion-icon>
+            <ion-label>Hombre</ion-label>
+            <ion-radio value="masculino"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-item class="caja">
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label floating>Nombre:</ion-label>
+        <ion-input type="text" [formControl]="varForm.controls['nombre']"></ion-input>
+      </ion-item>
+      <ion-item class="caja">
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label floating>Primer Apellido:</ion-label>
+        <ion-input type="text" [formControl]="varForm.controls['primerApellido']"></ion-input>
+      </ion-item>
+      <ion-item class="caja">
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label floating>Segundo Apellido:</ion-label>
+        <ion-input type="text" [formControl]="varForm.controls['segundoApellido']"></ion-input>
+      </ion-item>
+      <div>
+        <ion-item class="caja">
+          <ion-icon name="create" item-start></ion-icon>
+          <ion-label floating>Tipo</ion-label>
+          <ion-select placeholder="Tipo de Documento" [formControl]="varForm.controls['tipoDocument']">
+            <ion-option>CC</ion-option>
+            <ion-option>CC Extrangera</ion-option>
+            <ion-option>Pasaporte</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <ion-item class="caja">
+        <ion-icon name="create" item-start></ion-icon>
+        <ion-label floating>Numero de Cedula:</ion-label>
+        <ion-input type="number" [formControl]="varForm.controls['cedula']"></ion-input>
+      </ion-item>
+      <ion-item class="caja">
+        <ion-icon name="calendar" item-start></ion-icon>
+        <ion-label floating>Fecha de nacimiento:</ion-label>
+        <ion-datetime displayFormat="MM-DD-YYYY" [formControl]="varForm.controls['fnacimiento']"></ion-datetime>
+      </ion-item>
+      <ion-item class="caja">
+        <ion-icon name="phone-portrait" item-start></ion-icon>
+        <ion-label floating>Telefono:</ion-label>
+        <ion-input type="number" [formControl]="varForm.controls['telefono']"></ion-input>
+      </ion-item>
+      <ion-item class="caja">
+        <ion-icon name="pin" item-start></ion-icon>
+        <ion-label floating>Direccion:</ion-label>
+        <ion-input type="text" [formControl]="varForm.controls['direccion']"></ion-input>
+      </ion-item>
+      <div>
+        <ion-item class="caja">
+          <ion-icon name="cube" item-start></ion-icon>
+          <ion-label floating>Departamento</ion-label>
+          <ion-select [formControl]="varForm.controls['departamento']" #departamento (ionChange)="searchMunicipality(departamento)">
+            <div *ngFor="let item of department">
+              <ion-option value="{{item.id}}">{{item.departamento}}</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item class="caja">
+          <ion-icon name="cube" item-start></ion-icon>
+          <ion-label floating>Ciudad</ion-label>
+          <ion-select [formControl]="varForm.controls['ciudad']">
+            <div *ngFor="let item of cities">
+              <ion-option value="{{item.id}}">{{item.municipio}}</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item class="caja">
+          <ion-icon name="cube" item-start></ion-icon>
+          <ion-label floating>Elegir el Brazo</ion-label>
+          <ion-select [formControl]="varForm.controls['brazo']">
+            <ion-option *ngIf="estadoDerecho" value="der">Derecho</ion-option>
+            <ion-option *ngIf="estadoIzquierdo" value="izq">Izquierdo</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <ion-item class="caja">
+        <ion-icon name="pin" item-start></ion-icon>
+        <ion-label floating>Empresario a Beneficiar:</ion-label>
+        <ion-input type="text" [formControl]="varForm.controls['cedulaBeneficiario']"></ion-input>
+      </ion-item>
+      <div>
+        <ion-item class="caja">
+          <ion-icon name="mail" item-start></ion-icon>
+          <ion-label floating>Activar cuenta Por</ion-label>
+          <ion-select [formControl]="varForm.controls['emailValidate']">
+            <ion-option>Email</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div padding>
+        <button ion-button block color="rojo" type="submit">Registrar</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
+

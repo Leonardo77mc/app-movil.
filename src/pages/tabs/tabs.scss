@@ -1,0 +1,15 @@
+page-tabs {
+    @font-face {
+        font-family: "Rounded Elegance";
+        src: url("../../../platforms/android/app/src/main/assets/www/assets/fonts/rounded_elegance/Rounded_Elegance.ttf");
+    }
+    .serif {
+        font-family: Rounded Elegance!important;
+    }
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+        color: $tabs-md-tab-icon-color-active !important;
+    }
+    .tabs-md .tab-button[aria-selected=true] .tab-button-text {
+        color: $tabs-md-tab-icon-color-active !important;
+    }
+}

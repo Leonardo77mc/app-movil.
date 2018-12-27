@@ -1,0 +1,19 @@
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12 center text-center>
+                <ion-list>
+                    <ion-item *ngFor="let usuarios of usuariosArbol" class="lista-item">
+                        <ion-avatar item-start>
+                            <img src="http://allinapp.com.co/vistas/imagenes/perfiles/{{usuarios.url}}">
+                        </ion-avatar>
+                        <p>{{usuarios.nombre}}</p>
+                        <small>CC:{{usuarios.cedula}}</small><br>
+                        <small>Tel:{{usuarios.telefono}}</small><br>
+                        <small style="font-size: 9px;">{{usuarios.email}}</small>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

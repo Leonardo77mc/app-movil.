@@ -1,0 +1,21 @@
+page-invoice {
+    @font-face {
+        font-family: "Rounded Elegance";
+        src: url("https:allinapp.com.co/fonts/rounded_elegance/Rounded_Elegance.ttf");
+    }
+    .serif {
+        font-family: Rounded Elegance!important;
+    }
+    .invoice {
+        border: 1px solid grey!important;
+        border-bottom-left-radius: 2px!important;
+        background: #b71c1c!important;
+        color: white!important;
+    }
+    p {
+        font-family: Rounded Elegance;
+    }
+    small {
+        font-family: Rounded Elegance;
+    }
+}

@@ -1,1 +1,37 @@
-<ion-nav [root]="rootPage"></ion-nav>
+
+<ion-menu id="menuHome" [content]="content">
+    <ion-header>
+        <ion-toolbar color="rojo">
+            <!--<ion-title>Menu</ion-title>-->
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+            <button menuClose="menuHome" ion-item *ngFor="let p of pagesHome" (click)="openPage(p)" style="font-family: 'Rounded Elegance'!important;">
+                <ion-icon name={{p.icono}}></ion-icon> {{p.titulo}}
+            </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<ion-menu id="menuUser" [content]="content">
+    <ion-header>
+        <ion-toolbar color="rojo">
+            <!--<ion-title>Menu</ion-title>-->
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+            <button menuClose="menuUser" ion-item *ngFor="let p of pagesUser" (click)="openPage(p)" style="font-family: 'Rounded Elegance'!important;">
+                <ion-icon name={{p.icono}}></ion-icon> {{p.titulo}}
+            </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

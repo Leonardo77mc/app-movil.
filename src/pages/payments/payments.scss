@@ -1,0 +1,41 @@
+page-payments {
+    @font-face {
+        font-family: "Rounded Elegance";
+        src: url("https:allinapp.com.co/fonts/rounded_elegance/Rounded_Elegance.ttf");
+    }
+    .content-div {
+        width: $width-div;
+    }
+    .border-bottom {
+        border-bottom: $segment-button-md-border-color-activated;
+    }
+    .elegance {
+        font-family: 'Rounded Elegance'!important;
+    }
+    .btn {
+        border-radius: 4px;
+    }
+    .content-btn {
+        width: 90%;
+        margin-left: 7%;
+        margin-top: 10%;
+    }
+    small {
+        margin-left: 0.3em
+    }
+    .borde {
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+    .img {
+        height: 17px!important;
+        width: 17px;
+        border-radius: 4px;
+    }
+    .title {
+        font-size: 17px;
+    }
+    h1 {
+        font-size: 31px!important;
+    }
+}
